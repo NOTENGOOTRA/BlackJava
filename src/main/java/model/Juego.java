@@ -1,5 +1,5 @@
 package model;
-
+import model.Jugador;
 import java.util.ArrayList;
 import java.util.List;
 

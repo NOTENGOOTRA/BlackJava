@@ -1,5 +1,5 @@
 package gui;
-
+import controller.JuegoController;
 import model.Juego;
 
 import javax.swing.*;
@@ -52,47 +52,27 @@ public class VentanaInicio extends Ventana{
         this.add(this.botonRegistrarJugador);
         this.botonRegistrarJugador.addActionListener(this);
     }
-    private void generarBotonRegistrarCarrera() {
-        String textoBoton = "Registrar Carrera";
-        this.botonRegistrarCarrera = super.generarBoton(textoBoton, 175, 180, 150, 40);
-        this.add(this.botonRegistrarCarrera);
-        this.botonRegistrarCarrera.addActionListener(this);
-    }
     private void generarBotonSalir() {
         String textoBoton = "Salir";
         this.botonSalida = super.generarBoton(textoBoton, 175, 420, 150, 40);
         this.add(this.botonSalida);
         this.botonSalida.addActionListener(this);
     }
-    private void generarBotonBuscarEstudiante(){
-        String textoBoton = "Buscar Estudiante";
-        this.botonBuscarEstudiante=super.generarBoton(textoBoton, 175, 260, 150, 40);
-        this.add(this.botonBuscarEstudiante);
-        this.botonBuscarEstudiante.addActionListener(this);
-    }
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.botonRegistrarEstudiante) {
-            VentanaRegistroEstudiante ventanaRegistrarEstudiante= new VentanaRegistroEstudiante(universidad);
+        if (e.getSource() == this.botonRegistrarJugador) {
+            VentanaRegistroJugador ventanaRegistrarJugador= new VentanaRegistroJugador(juego);
             //Cierra la ventana actual
             this.dispose();
         }
-        if(e.getSource() == this.botonRegistrarCarrera){
-            VentanaRegistroCarrera ventanaRegistroCarrera= new VentanaRegistroCarrera(universidad);
-            this.dispose();
-        }
-        if(e.getSource() == this.botonBuscarEstudiante){
-            VentanaBusquedaEstudiante ventanaBusquedaEstudiante= new VentanaBusquedaEstudiante(Universidad);
-            this.dispose();
-        }
         if(e.getSource() == this.botonSalida){
-            UniversidadController.almacenarDatos(this.universidad);
+            JuegoController.almacenarDatos(this.juego);
             this.dispose();
             System.exit(0);
         }
     }
 
     public static void main(String[] args) {
-        JFrame frame = new VentanaBienvenida("Bienvenida");
+        JFrame frame = new VentanaInicio("BlackJava");
         frame.setVisible(true);
 
     }
