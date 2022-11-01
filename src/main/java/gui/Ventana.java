@@ -1,4 +1,4 @@
-package Gui;
+package gui;
 
 import javax.swing.*;
 import javax.swing.text.InternationalFormatter;
@@ -82,7 +82,7 @@ public class Ventana extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
-        JFrame frame = new Ventana("Bienvenida");
+        JFrame frame = new Ventana("BlackJava");
         frame.setVisible(true);
     }
 }
