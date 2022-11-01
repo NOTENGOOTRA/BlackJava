@@ -1,57 +1,56 @@
 package gui;
 
+import model.Juego;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class VentanaInicio extends Ventana{
     private JuegoController juegoController;
     private JLabel textoMenu;
-    private JButton botonRegistrarCarrera;
+    private JButton botonIniciarJuego;
     private JButton botonSalida;
-    private JButton botonRegistrarEstudiante;
-    private JButton botonBuscarEstudiante;
-    private Universidad universidad;
-    private model.Universidad Universidad;
+    private JButton botonRegistrarJugador;
+    private Juego juego;
+    private model.Juego Juego;
     private JPanel panelBienvenida;
 
 
 
-    public VentanaBienvenida(){
-        super("Bienvenida");
+    public VentanaInicio(){
+        super("BlackJava ");
         add(panelBienvenida);
         setSize(300,200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public VentanaBienvenida(Universidad universidad) {
+    public VentanaInicio(Juego juego) {
         super("Bienvenida");
-        this.universidad = universidad;
+        this.juego = juego;
         generarElementosVentana();
     }
 
-    public VentanaBienvenida(String bienvenida) {
+    public VentanaInicio(String bienvenida) {
         super("Bienvenida");
-        this.universidad = universidad;
+        this.juego = juego;
         generarElementosVentana();
     }
 
     private void generarElementosVentana() {
         generarMensajeMenu();
-        generarBotonRegistrarEstudiante();
-        generarBotonRegistrarCarrera();
-        generarBotonBuscarEstudiante();
+        generarBotonRegistrarJugador();
         generarBotonSalir();
     }
     private void generarMensajeMenu() {
-        String textoBienvenida = "Intranet";
+        String textoBienvenida = "BlackJava";
         super.generarJLabelEncabezado(this.textoMenu, textoBienvenida, 20, 30, 500, 30);
     }
-    private void generarBotonRegistrarEstudiante() {
-        String textoBoton = "Registrar Estudiante";
-        this.botonRegistrarEstudiante = super.generarBoton(textoBoton, 175, 100, 150, 40);
-        this.add(this.botonRegistrarEstudiante);
-        this.botonRegistrarEstudiante.addActionListener(this);
+    private void generarBotonRegistrarJugador() {
+        String textoBoton = "Registrar Jugador";
+        this.botonRegistrarJugador = super.generarBoton(textoBoton, 175, 100, 150, 40);
+        this.add(this.botonRegistrarJugador);
+        this.botonRegistrarJugador.addActionListener(this);
     }
     private void generarBotonRegistrarCarrera() {
         String textoBoton = "Registrar Carrera";
